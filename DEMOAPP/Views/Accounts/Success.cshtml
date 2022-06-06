@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success</title>
+</head>
+<body>
+
+    <h3>Success Page</h3>
+    Welcome @Context.Session.GetString("username")
+    <br>
+
+    <h3>Login Page</h3>
+    @ViewBag.error
+    <form method="post" asp-controller="Accounts" asp-action="Client">
+        <table border="0" cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Client Name</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+    <a asp-controller="Accounts" asp-action="logout">Logout</a>
+
+</body>
+</html>

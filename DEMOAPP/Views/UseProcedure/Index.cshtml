@@ -1,0 +1,46 @@
+﻿@model DEMOAPP.Models.StudentInfo
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Student List</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th colspan="2">Name</th>
+            <th colspan="2">Email</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            foreach (var item in Model.StundetList)
+            {
+                <tr>
+                    <td rowspan="2"> @item.NAME</td>
+                </tr>
+                <tr>
+                    <td colspan="2"> @item.EMAIL</td>
+                </tr>
+            }
+            <tr colspan="8">
+                <th rowspan="2"> ID</th>
+                <th rowspan="2"> NAME</th>
+            </tr>
+            foreach (var item in Model.ddlStundet)
+            {
+                <tr>
+                    <td rowspan="2"> @item.ID</td>
+                </tr>
+                <tr>
+                    <td colspan="2"> @item.NAME</td>
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+

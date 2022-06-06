@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Client Success</title>
+</head>
+<body>
+
+    <h3>Client Success Page</h3>
+    Welcome @Context.Session.GetString("username")
+    <br>
+    <a asp-controller="Accounts" asp-action="logout">Logout</a>
+
+</body>
+</html>

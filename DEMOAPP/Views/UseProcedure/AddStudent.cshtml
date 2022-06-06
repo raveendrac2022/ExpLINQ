@@ -1,0 +1,74 @@
+﻿@model DEMOAPP.Models.StudentModel
+@using DEMOAPP.Models
+@{
+    ViewData["Title"] = "AddStudent";
+}
+<div class="right-panel" style="padding-top:0;">
+    <h1>AddStudent</h1>
+    <div class="clearfix">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div style="margin-top:10px;">
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="no-margin" />
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="text-right">
+                            <a asp-action="Index" class="btn btn-primary"><i class="fa fa-reply" aria-hidden="true"></i> Back to Student List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form method="post" asp-controller="UseProcedure" asp-action="Create" id="" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*@Html.HiddenFor(x => x.Id)*@
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="NAME"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="NAME" class="form-control" name="NAME" />
+                            <span asp-validation-for="NAME" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="EMAIL"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="EMAIL" class="form-control" name="EMAIL" />
+                            <span asp-validation-for="EMAIL" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="CONTACT"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="CONTACT" class="form-control" name="CONTACT" />
+                            <span asp-validation-for="CONTACT" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <input type="submit" value="Create" class="btn btn-primary" id="AddNewEmployee" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Custom/ProjectManager.js"></script>
+
+

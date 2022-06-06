@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DEMOAPP.Models.EmployeeDetails>
+@using DEMOAPP.Models
+<div class="top-buffer"></div>
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="btn-group">
+            <a asp-action="AddCustomer" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>Add Employee</a>
+        </div>
+        <div class="top-buffer"></div><br>
+        <table class="table table-bordered table-striped table-condensed" style="margin-top:5px;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email No</th>
+                    <th>Department</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.EmpName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EmpAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EmpEmailId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DEPT_NAME)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LOC_NAME)</td>
+                    <td>
+                        <a asp-action="AddEditCustomer" asp-route-id="@item.id" class="btn btn-info">
+                            <i class="glyphicon glyphicon-pencil"></i>  Edit
+                        </a>
+                        <a asp-action="RecordDelete" asp-route-id="@item.id" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>  Delete
+                        </a>
+                    </td>
+                </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //alert("ready!");
+    });
+</script>

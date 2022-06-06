@@ -1,0 +1,66 @@
+﻿@model DEMOAPP.Models.FillData
+@using DEMOAPP.Models
+@{
+    ViewData["Title"] = "FxUploadFile";
+}
+<h1>FxUploadFile</h1>
+<div class="panel-body">
+    <form method="post" asp-controller="FxUpload" asp-action="FxUploadFileSave" id="" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @*@Html.HiddenFor(x => x.Id)*@
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Document Name</label><span class="text-danger">*</span>
+            </div>
+            <div class="col-md-4">
+                <input asp-for="FILE_NAME" class="form-control" name="FILE_NAME" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label>Upload</label><span class="text-danger">*</span>
+            </div>
+            <div class="col-md-4">
+                <input type="file" asp-for="ATTACHMENT" multiple />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <input type="submit" value="Add File" class="btn btn-primary" id="" />
+            </div>
+        </div>
+    </form>
+    <div>
+        <table class="table table-bordered table-striped table-condensed" style="margin-top:5px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>File Name</th>
+                    <th>File Path</th>
+                    <th>Upload Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.EmpName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.EmpAddress)</td>
+                        <td>@Html.DisplayFor(modelItem => item.EmpEmailId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DEPT_NAME)</td>
+                        <td>
+                            <a asp-action="AddEditCustomer" asp-route-id="@item.id" class="btn btn-info">
+                                <i class="glyphicon glyphicon-pencil"></i>  Edit
+                            </a>
+                            <a asp-action="RecordDelete" asp-route-id="@item.id" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>  Delete
+                            </a>
+                        </td>
+                    </tr>
+
+                }*@
+            </tbody>
+        </table>
+    </div>
+</div>
+

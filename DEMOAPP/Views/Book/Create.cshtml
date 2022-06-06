@@ -1,0 +1,64 @@
+﻿@model DEMOAPP.Models.BookModel
+@using DEMOAPP.Models
+@{
+    ViewData["Title"] = "AddStudent";
+}
+<div class="right-panel" style="padding-top:0;">
+    <h1>AddStudent</h1>
+    <div class="clearfix">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="no-margin" />
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="text-right">
+                            <a asp-action="Index" class="btn btn-primary"><i class="fa fa-reply" aria-hidden="true"></i> Back to Student List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form method="post" asp-controller="Book" asp-action="SaveRecord" id="" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="BOOK_NAME"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="BOOK_NAME" class="form-control" name="BOOK_NAME" />
+                            <span asp-validation-for="BOOK_NAME" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="AUTHER"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="AUTHER" class="form-control" name="AUTHER" />
+                            <span asp-validation-for="AUTHER" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="PRICE"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="PRICE" class="form-control" name="PRICE" />
+                            <span asp-validation-for="PRICE" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <input type="submit" value="Create" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

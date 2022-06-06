@@ -1,0 +1,63 @@
+﻿@model DEMOAPP.Models.DepartmentModel
+@using DEMOAPP.Models
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="right-panel" style="padding-top:0;">
+    <h1>Create Department</h1>
+    <div class="clearfix">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div style="margin-top:10px;">
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="no-margin" />
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="text-right">
+                            <a asp-action="Index" class="btn btn-primary"><i class="fa fa-reply" aria-hidden="true"></i> Back to List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form method="post" asp-controller="Department" asp-action="SaveDepartment" id="" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="DeptName"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="DeptName" class="form-control" name="DeptName" />
+                            <span asp-validation-for="DeptName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Remark"></label><span class="text-danger">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="Remark" class="form-control" name="Remark" />
+                            <span asp-validation-for="Remark" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <input type="submit" value="SaveDepartment" class="btn btn-primary" id="AddNewEmployee" />
+                            <a asp-controller="Department" asp-action="Index" type="button" class="btn  btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
